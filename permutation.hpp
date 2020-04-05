@@ -4,6 +4,7 @@
 
 class permutation
 {
+public:
 	// returns the permutation (1,2,3,...,size - 1,size)
 	// used as inital pemutation that avoids any pattern with a descending part
 	static permutation get_ascending(unsigned size)
