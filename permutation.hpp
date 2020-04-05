@@ -33,12 +33,12 @@ public:
 		return result;
 	}
 
-	unsigned operator[](unsigned index)
+	unsigned operator[](unsigned index) const
 	{
 		return elems_[index];
 	}
 
-	unsigned size()
+	unsigned size() const
 	{
 		return elems_.size();
 	}
