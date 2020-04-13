@@ -1,6 +1,7 @@
 #ifndef __PERMUTATION_HPP__
 #define __PERMUTATION_HPP__
 #include <vector>
+#include <optional>
 
 class permutation
 {
@@ -31,6 +32,20 @@ public:
 		}
 
 		return result;
+	}
+
+	// constructs a permutation object from values if the values represent a permutation
+	// or returns an empty optional if the values aren't between 1 and values.size() or any of the values repeat
+	static std::optional<permutation> convert_to_permutation(const std::vector<unsigned>& values);
+
+	// other becomes an empty permutation of size 0
+	permutation(permutation&& other) noexcept : elems_(std::move(other.elems_)) {}
+
+	// other becomes an empty permutation of size 0
+	permutation& operator=(permutation&& other) noexcept
+	{
+		elems_ = std::move(other.elems_);
+		return *this;
 	}
 
 	unsigned operator[](unsigned index) const
