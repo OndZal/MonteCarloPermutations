@@ -8,6 +8,7 @@
 bool next_tuple(std::vector<unsigned>& positions, unsigned max_index)
 {
 	// tries for each index starting from the last
+	// i needs to be signed to compare to 0 properly
 	for (long i = positions.size() - 1; i >= 0; i--)
 	{
 		// if either there is a gap between positions[i] and positions[i + 1] (and positions[i + 1] exists)
@@ -19,7 +20,7 @@ bool next_tuple(std::vector<unsigned>& positions, unsigned max_index)
 			// set the following positions to immediately follow positions[i]
 			for (unsigned j = i + 1; j < positions.size(); j++)
 			{
-				positions[j] = positions[i] + j - 1;
+				positions[j] = positions[i] + j - i;
 			}
 
 			return true;
